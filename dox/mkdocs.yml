@@ -1,0 +1,100 @@
+site_name: 各种桌面程序
+site_url: https://laolang2016.github.io/xui-note
+site_author: 潼关路边的一只野鬼
+site_description: 死写界面的
+
+repo_name: 野鬼圣经 - J**V 全干
+repo_url: https://github.com/ghost-hello-project/xui-note
+
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  # 设置语言
+  language: zh
+  # 设置主题色
+  palette:
+    primary: indigo
+  features:
+    # tab 导航
+    - navigation.tabs
+    # tab 固定
+    # - navigation.tabs.sticky
+    # 展开左侧所有目录
+    # - navigation.expand
+    # 面包屑导航
+    - navigation.path
+    # 目录首页
+    - navigation.indexes 
+    # 返回顶部
+    - navigation.top
+    # 代码块复制
+    - content.code.copy
+    # 脚注悬浮提示
+    - content.footnote.tooltips
+    # 悬浮提示
+    - content.tooltips
+    # 加载进度提示
+    - navigation.instant
+    - navigation.instant.progress
+markdown_extensions:
+  # 提示框
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  # 点击悬浮提示
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  # 代码块  
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  # tabs
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  # mermaid 绘图
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # 脚注
+  - footnotes
+  # 格式化
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  # 表格
+  - attr_list
+  - md_in_html
+  # 对齐图片, 图片添加标题, 大图延迟加载
+  - attr_list
+  - md_in_html
+  # 列表
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # 悬浮提示
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+
+# 文档
+nav:
+  - 主页: index.md
+  - qt:
+    - 'qt/a01_summary.md'
+    - 'qt/a02_install.md'
+    - 'qt/a03_hello.md'
+  - about:
+    - 'about/material_base_use.md'
