@@ -57,6 +57,18 @@ set_target_properties(qt-hello PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+
+if(WIN32)
+    # 构建后动作
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+
+        # 复制 qt 资源文件
+        # COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resources_build/win32/qt/Qt6Core.dll $<TARGET_FILE_DIR:${PROJECT_NAME}>/
+        COMMAND ${CMAKE_COMMAND} -E echo "$<TARGET_FILE:${PROJECT_NAME}>"
+        COMMAND ${WINDEPLOYQT6_EXEC_PATH} "$<TARGET_FILE:${PROJECT_NAME}>"
+    )
+endif()
+
 include(GNUInstallDirs)
 install(TARGETS qt-hello
     BUNDLE DESTINATION .
