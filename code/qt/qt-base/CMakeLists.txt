@@ -27,7 +27,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # 包含全局头文件
-include_directories(${PROJECT_SOURCE_DIR}/include ${RAPIDJSON_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/third)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # 添加子目录 #############################################################################################################
 add_subdirectory(src)
