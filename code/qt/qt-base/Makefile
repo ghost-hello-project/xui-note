@@ -15,10 +15,6 @@ BUILD_DIR_RELEASE = build/$(PRESET_RELEASE)
 
 ALL: app
 
-t:
-	@echo $(PRESET_DEBUG)
-	@echo $(PRESET_RELEASE)
-
 app: print config_release build_release
 
 config_debug:
