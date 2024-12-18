@@ -1,5 +1,10 @@
 # qt Hello World
 
+## 本部分项目代码路径
+
+[https://github.com/ghost-hello-project/xui-note/tree/main/code/qt/qt-hello](https://github.com/ghost-hello-project/xui-note/tree/main/code/qt/qt-hello)
+
+
 ## 新建一个 qt 项目
 **1. 选择 widgets application**
 
@@ -429,7 +434,3 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(qt-hello)
 endif()
 ```
-
-
-
-## 一些基本的代码

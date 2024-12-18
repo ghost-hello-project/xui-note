@@ -96,5 +96,6 @@ nav:
     - 'qt/a01_summary.md'
     - 'qt/a02_install.md'
     - 'qt/a03_hello.md'
+    - 'qt/a04_base.md'
   - about:
     - 'about/material_base_use.md'
