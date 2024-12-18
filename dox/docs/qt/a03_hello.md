@@ -350,7 +350,10 @@ laolang@laolang-mint:qt-hello$
 }
 ```
 
-`CMakeLists.txt` 也需要修改. 由于 `windows` 平台编译后,如果不将 `qt` 相关 `dll` 路径添加到环境变量,则可执行文件无法直接运行,所以使用 `windeployqt6` 直接打包
+`CMakeLists.txt` 也需要修改. 
+
+> 由于 `windows` 平台编译后,如果不将 `qt` 相关 `dll` 路径添加到环境变量,则可执行文件无法直接运行,所以使用 `windeployqt6` 直接打包
+
 ```cmake linenums="1" hl_lines="61-70"
 cmake_minimum_required(VERSION 3.26)
 
@@ -433,4 +436,114 @@ install(TARGETS qt-hello
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(qt-hello)
 endif()
+```
+
+此时直接编译效果如下
+
+```
+cmake --preset=windows-release && cmake --build --preset=windows-release
+```
+
+```
+E:\github\ghost-hello-project\xui-note\code\qt\qt-hello>cmake --preset=windows-release && cmake --build --preset=windows-release
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  CMAKE_CXX_COMPILER="D:/program/qt/Tools/mingw1120_64/bin/g++.exe"
+  CMAKE_CXX_FLAGS="-Wall -Wextra"
+  CMAKE_PREFIX_PATH="D:/program/qt/6.5.3/mingw_64"
+  WINDEPLOYQT6_EXEC_PATH="D:/program/qt/6.5.3/mingw_64/bin/windeployqt6.exe"
+
+-- The CXX compiler identification is GNU 11.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/program/qt/Tools/mingw1120_64/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR)
+-- Configuring done (8.8s)
+-- Generating done (0.8s)
+-- Build files have been written to: E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release
+[  0%] Built target qt-hello_autogen_timestamp_deps
+[ 20%] Automatic MOC and UIC for target qt-hello
+[ 20%] Built target qt-hello_autogen
+[ 40%] Building CXX object CMakeFiles/qt-hello.dir/qt-hello_autogen/mocs_compilation.cpp.obj
+[ 60%] Building CXX object CMakeFiles/qt-hello.dir/main.cpp.obj
+[ 80%] Building CXX object CMakeFiles/qt-hello.dir/mainwindow.cpp.obj
+[100%] Linking CXX executable qt-hello.exe
+E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/qt-hello.exe
+E:\github\ghost-hello-project\xui-note\code\qt\qt-hello\build\windows-release\qt-hello.exe 64 bit, release executable
+Adding Qt6Network for qtuiotouchplugin.dll
+Adding Qt6Svg for qsvgicon.dll
+Direct dependencies: Qt6Core Qt6Gui Qt6Widgets
+All dependencies   : Qt6Core Qt6Gui Qt6Widgets
+To be deployed     : Qt6Core Qt6Gui Qt6Network Qt6Svg Qt6Widgets
+Updating Qt6Core.dll.
+Updating Qt6Gui.dll.
+Updating Qt6Network.dll.
+Updating Qt6Svg.dll.
+Updating Qt6Widgets.dll.
+Updating opengl32sw.dll.
+Updating D3Dcompiler_47.dll.
+Updating libgcc_s_seh-1.dll.
+Updating libstdc++-6.dll.
+Updating libwinpthread-1.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/generic.
+Updating qtuiotouchplugin.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/iconengines.
+Updating qsvgicon.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/imageformats.
+Updating qgif.dll.
+Updating qico.dll.
+Updating qjpeg.dll.
+Updating qsvg.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/networkinformation.
+Updating qnetworklistmanager.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/platforms.
+Updating qwindows.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/styles.
+Updating qwindowsvistastyle.dll.
+Creating directory E:/github/ghost-hello-project/xui-note/code/qt/qt-hello/build/windows-release/tls.
+Updating qcertonlybackend.dll.
+Updating qopensslbackend.dll.
+Updating qschannelbackend.dll.
+Creating E:\github\ghost-hello-project\xui-note\code\qt\qt-hello\build\windows-release\translations...
+Creating qt_ar.qm...
+Creating qt_bg.qm...
+Creating qt_ca.qm...
+Creating qt_cs.qm...
+Creating qt_da.qm...
+Creating qt_de.qm...
+Creating qt_en.qm...
+Creating qt_es.qm...
+Creating qt_fa.qm...
+Creating qt_fi.qm...
+Creating qt_fr.qm...
+Creating qt_gd.qm...
+Creating qt_he.qm...
+Creating qt_hr.qm...
+Creating qt_hu.qm...
+Creating qt_it.qm...
+Creating qt_ja.qm...
+Creating qt_ko.qm...
+Creating qt_lv.qm...
+Creating qt_nl.qm...
+Creating qt_nn.qm...
+Creating qt_pl.qm...
+Creating qt_pt_BR.qm...
+Creating qt_ru.qm...
+Creating qt_sk.qm...
+Creating qt_tr.qm...
+Creating qt_uk.qm...
+Creating qt_zh_CN.qm...
+Creating qt_zh_TW.qm...
+[100%] Built target qt-hello
+
+E:\github\ghost-hello-project\xui-note\code\qt\qt-hello>
 ```
